@@ -18,9 +18,7 @@
       --subtle: #999;
       --ig: #e91e63;
       --tt: #1db954;
-      --accent: #111;
       --radius: 16px;
-      --radius-sm: 10px;
     }
 
     body {
@@ -55,9 +53,7 @@
       height: 180px;
       border-radius: 18px;
       object-fit: cover;
-      background: #e0ddd6;
       display: block;
-      flex-shrink: 0;
     }
 
     .hero-photo-placeholder {
@@ -65,13 +61,12 @@
       height: 180px;
       border-radius: 18px;
       background: #e0ddd6;
-      display: flex;
+      display: none;
       align-items: center;
       justify-content: center;
       font-family: 'DM Serif Display', serif;
       font-size: 56px;
       color: #999;
-      flex-shrink: 0;
     }
 
     .hero-name {
@@ -111,9 +106,9 @@
       padding: 5px 14px;
       text-decoration: none;
     }
-    .contact-pill:hover { color: var(--text); border-color: var(--border-md); }
+    .contact-pill:hover { color: var(--text); }
 
-    /* ── SECTION HEADERS ── */
+    /* ── SECTION LABELS ── */
     .section { margin-bottom: 2.5rem; }
     .section-label {
       font-size: 11px;
@@ -147,13 +142,7 @@
       border-bottom: 0.5px solid var(--border);
     }
 
-    .platform-dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      flex-shrink: 0;
-    }
-
+    .platform-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
     .platform-name { font-size: 15px; font-weight: 500; }
     .platform-handle { font-size: 12px; color: var(--subtle); }
 
@@ -216,10 +205,11 @@
     .service-desc { font-size: 12px; color: var(--muted); line-height: 1.55; }
 
     /* ── FEATURED CONTENT ── */
-    .content-grid {
+    .content-row {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 16px;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-bottom: 14px;
     }
 
     .content-card {
@@ -227,23 +217,85 @@
       border: 0.5px solid var(--border-md);
       border-radius: var(--radius);
       overflow: hidden;
-    }
-
-    .embed-area {
-      background: var(--bg);
       display: flex;
-      align-items: flex-start;
-      justify-content: center;
-      min-height: 420px;
+      flex-direction: column;
     }
 
-    .embed-area iframe {
+    /* Square aspect ratio container */
+    .card-media {
+      position: relative;
       width: 100%;
+      padding-bottom: 100%;
+      overflow: hidden;
+      background: var(--bg);
+      flex-shrink: 0;
+    }
+
+    .card-media iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
       border: none;
       display: block;
     }
 
-    .content-meta {
+    /* TikTok thumbnail preview */
+    .tt-thumb-wrap {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .tt-thumb-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.35s ease;
+      display: block;
+    }
+
+    .tt-thumb-wrap:hover img { transform: scale(1.05); }
+
+    .tt-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0) 55%);
+      display: flex;
+      align-items: flex-end;
+      padding: 16px;
+    }
+
+    .tt-watch-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: rgba(255,255,255,0.95);
+      color: #111;
+      font-size: 13px;
+      font-weight: 600;
+      font-family: 'DM Sans', sans-serif;
+      border: none;
+      border-radius: 24px;
+      padding: 8px 16px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .tt-watch-btn:hover { background: #fff; transform: scale(1.03); }
+
+    .tt-spinner {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--subtle);
+      font-size: 13px;
+    }
+
+    .card-meta {
       padding: 10px 14px;
       font-size: 12px;
       color: var(--subtle);
@@ -259,7 +311,7 @@
       padding: 2px 8px;
       border-radius: 20px;
     }
-    .ig-badge { background: #fce4ec; color: #b71c1c; }
+    .ig-badge { background: #fce4ec; color: #880e4f; }
     .tt-badge { background: #e8f5e9; color: #1b5e20; }
 
     /* ── FOOTER ── */
@@ -276,34 +328,20 @@
       gap: 12px;
     }
 
-    .footer-name {
-      font-family: 'DM Serif Display', serif;
-      font-size: 18px;
-    }
-
+    .footer-name { font-family: 'DM Serif Display', serif; font-size: 18px; }
     .footer-contacts { display: flex; gap: 12px; flex-wrap: wrap; }
-    .footer-contacts a {
-      font-size: 13px;
-      color: var(--muted);
-      text-decoration: none;
-    }
+    .footer-contacts a { font-size: 13px; color: var(--muted); text-decoration: none; }
     .footer-contacts a:hover { color: var(--text); }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 640px) {
-      .hero {
-        grid-template-columns: 1fr;
-        text-align: center;
-      }
-      .hero-photo, .hero-photo-placeholder {
-        width: 140px;
-        height: 140px;
-        margin: 0 auto;
-      }
-      .hero-name { font-size: 32px; }
+      .hero { grid-template-columns: 1fr; text-align: center; }
+      .hero-photo { width: 130px; height: 130px; margin: 0 auto; }
+      .hero-name { font-size: 30px; }
       .tags, .contact-row { justify-content: center; }
       .hero-bio { margin-left: auto; margin-right: auto; }
-      .footer { flex-direction: column; align-items: flex-start; }
+      .content-row { grid-template-columns: 1fr; }
+      .footer { flex-direction: column; }
     }
   </style>
 </head>
@@ -316,11 +354,11 @@
       class="hero-photo"
       src="WhatsApp Image 2026-04-07 at 11.45.12.jpeg"
       alt="Bernardo Cruz"
-      onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+      onerror="this.style.display='none'; document.getElementById('hero-fallback').style.display='flex';"
     />
-    <div class="hero-photo-placeholder" style="display:none;">BC</div>
+    <div class="hero-photo-placeholder" id="hero-fallback">BC</div>
 
-    <div class="hero-info">
+    <div>
       <h1 class="hero-name">Bernardo Cruz</h1>
       <p class="hero-bio">Lifestyle creator focused on fashion, well-being and leisure. I combine strategy and creativity to produce high-performing content.</p>
       <div class="tags">
@@ -344,7 +382,7 @@
 
       <div class="platform-card">
         <div class="platform-header">
-          <div class="platform-dot" style="background: var(--ig);"></div>
+          <div class="platform-dot" style="background:var(--ig)"></div>
           <div>
             <div class="platform-name">Instagram</div>
             <div class="platform-handle">@bernardocruzzz</div>
@@ -358,22 +396,22 @@
         <div class="demo-section">
           <div class="demo-row">
             <div class="demo-meta"><span>18–24</span><span>38%</span></div>
-            <div class="bar-track"><div class="bar-fill" style="width:38%; background:var(--ig);"></div></div>
+            <div class="bar-track"><div class="bar-fill" style="width:38%;background:var(--ig)"></div></div>
           </div>
           <div class="demo-row">
             <div class="demo-meta"><span>25–34</span><span>48%</span></div>
-            <div class="bar-track"><div class="bar-fill" style="width:48%; background:var(--ig);"></div></div>
+            <div class="bar-track"><div class="bar-fill" style="width:48%;background:var(--ig)"></div></div>
           </div>
           <div class="demo-row">
             <div class="demo-meta"><span>35+</span><span>14%</span></div>
-            <div class="bar-track"><div class="bar-fill" style="width:14%; background:var(--ig);"></div></div>
+            <div class="bar-track"><div class="bar-fill" style="width:14%;background:var(--ig)"></div></div>
           </div>
         </div>
       </div>
 
       <div class="platform-card">
         <div class="platform-header">
-          <div class="platform-dot" style="background: var(--tt);"></div>
+          <div class="platform-dot" style="background:var(--tt)"></div>
           <div>
             <div class="platform-name">TikTok</div>
             <div class="platform-handle">@bernardocruzzz</div>
@@ -387,15 +425,15 @@
         <div class="demo-section">
           <div class="demo-row">
             <div class="demo-meta"><span>18–24</span><span>61%</span></div>
-            <div class="bar-track"><div class="bar-fill" style="width:61%; background:var(--tt);"></div></div>
+            <div class="bar-track"><div class="bar-fill" style="width:61%;background:var(--tt)"></div></div>
           </div>
           <div class="demo-row">
             <div class="demo-meta"><span>25–34</span><span>32%</span></div>
-            <div class="bar-track"><div class="bar-fill" style="width:32%; background:var(--tt);"></div></div>
+            <div class="bar-track"><div class="bar-fill" style="width:32%;background:var(--tt)"></div></div>
           </div>
           <div class="demo-row">
             <div class="demo-meta"><span>35+</span><span>7%</span></div>
-            <div class="bar-track"><div class="bar-fill" style="width:7%; background:var(--tt);"></div></div>
+            <div class="bar-track"><div class="bar-fill" style="width:7%;background:var(--tt)"></div></div>
           </div>
         </div>
       </div>
@@ -443,35 +481,64 @@
   <!-- FEATURED CONTENT -->
   <div class="section">
     <div class="section-label">Featured content</div>
-    <div class="content-grid">
 
-
+    <!-- Row 1: Instagram left · TikTok right -->
+    <div class="content-row">
 
       <div class="content-card">
-        <div class="embed-area" style="min-height:500px;">
-          <iframe src="https://www.instagram.com/p/DUgewTxCEVQ/embed" height="540" style="max-width:400px;" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        <div class="card-media">
+          <iframe
+            src="https://www.instagram.com/p/DUgewTxCEVQ/embed/captioned/"
+            scrolling="no"
+            allowtransparency="true"
+            allowfullscreen="true"
+          ></iframe>
         </div>
-        <div class="content-meta">
+        <div class="card-meta">
           <span class="platform-badge ig-badge">Instagram</span>
           @bernardocruzzz
         </div>
       </div>
-      
+
       <div class="content-card">
-        <div class="embed-area">
-          <iframe src="https://www.tiktok.com/embed/v2/6995231038779706630" height="700" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        <div class="card-media">
+          <div class="tt-thumb-wrap" id="tt-wrap-1">
+            <div class="tt-spinner" id="tt-spin-1">Loading preview...</div>
+          </div>
         </div>
-        <div class="content-meta">
+        <div class="card-meta">
           <span class="platform-badge tt-badge">TikTok</span>
           @bernardocruzzz
         </div>
       </div>
-      
+
+    </div>
+
+    <!-- Row 2: TikTok left · Instagram right -->
+    <div class="content-row">
+
       <div class="content-card">
-        <div class="embed-area" style="min-height:500px;">
-          <iframe src="https://www.instagram.com/p/DVZJsbTiPba/embed" height="540" style="max-width:400px;" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        <div class="card-media">
+          <div class="tt-thumb-wrap" id="tt-wrap-2">
+            <div class="tt-spinner" id="tt-spin-2">Loading preview...</div>
+          </div>
         </div>
-        <div class="content-meta">
+        <div class="card-meta">
+          <span class="platform-badge tt-badge">TikTok</span>
+          @bernardocruzzz
+        </div>
+      </div>
+
+      <div class="content-card">
+        <div class="card-media">
+          <iframe
+            src="https://www.instagram.com/p/DVZJsbTiPba/embed/captioned/"
+            scrolling="no"
+            allowtransparency="true"
+            allowfullscreen="true"
+          ></iframe>
+        </div>
+        <div class="card-meta">
           <span class="platform-badge ig-badge">Instagram</span>
           @bernardocruzzz
         </div>
@@ -490,5 +557,91 @@
   </div>
 
 </div>
+
+<script>
+  var tiktoks = [
+    {
+      url: 'https://www.tiktok.com/@bernardocruzzz/video/7622703146250374432',
+      wrapId: 'tt-wrap-1',
+      spinId: 'tt-spin-1'
+    },
+    {
+      url: 'https://www.tiktok.com/@bernardocruzzz/video/6995231038779706630',
+      wrapId: 'tt-wrap-2',
+      spinId: 'tt-spin-2'
+    }
+  ];
+
+  function buildTTCard(wrap, spin, url, thumbnailUrl, title) {
+    spin.remove();
+
+    var img = document.createElement('img');
+    img.src = thumbnailUrl;
+    img.alt = title || 'TikTok video';
+    wrap.appendChild(img);
+
+    var overlay = document.createElement('div');
+    overlay.className = 'tt-overlay';
+
+    var btn = document.createElement('a');
+    btn.href = url;
+    btn.target = '_blank';
+    btn.rel = 'noopener';
+    btn.className = 'tt-watch-btn';
+    btn.innerHTML = '<svg width="13" height="13" viewBox="0 0 16 16" fill="none"><path d="M4 2l10 6-10 6V2z" fill="currentColor"/></svg> Watch on TikTok';
+
+    overlay.appendChild(btn);
+    wrap.appendChild(overlay);
+  }
+
+  function buildTTFallback(wrap, spin, url) {
+    spin.remove();
+    wrap.style.background = '#ece9e3';
+    wrap.style.display = 'flex';
+    wrap.style.alignItems = 'center';
+    wrap.style.justifyContent = 'center';
+
+    var inner = document.createElement('div');
+    inner.style.cssText = 'display:flex;flex-direction:column;align-items:center;gap:14px;';
+
+    var svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    svg.setAttribute('width', '36');
+    svg.setAttribute('height', '36');
+    svg.setAttribute('viewBox', '0 0 24 24');
+    svg.setAttribute('fill', 'none');
+    var path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    path.setAttribute('d', 'M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.75a8.19 8.19 0 004.8 1.54V6.84a4.85 4.85 0 01-1.03-.15z');
+    path.setAttribute('fill', '#777');
+    svg.appendChild(path);
+    inner.appendChild(svg);
+
+    var btn = document.createElement('a');
+    btn.href = url;
+    btn.target = '_blank';
+    btn.rel = 'noopener';
+    btn.className = 'tt-watch-btn';
+    btn.style.background = '#111';
+    btn.style.color = '#fff';
+    btn.innerHTML = 'Watch on TikTok';
+    inner.appendChild(btn);
+
+    wrap.appendChild(inner);
+  }
+
+  tiktoks.forEach(function(tt) {
+    var wrap = document.getElementById(tt.wrapId);
+    var spin = document.getElementById(tt.spinId);
+    var oembedUrl = 'https://www.tiktok.com/oembed?url=' + encodeURIComponent(tt.url);
+
+    fetch(oembedUrl)
+      .then(function(r) { return r.json(); })
+      .then(function(data) {
+        buildTTCard(wrap, spin, tt.url, data.thumbnail_url, data.title);
+      })
+      .catch(function() {
+        buildTTFallback(wrap, spin, tt.url);
+      });
+  });
+</script>
 </body>
 </html>
