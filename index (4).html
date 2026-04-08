@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bernardo Cruz | Media Kit</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --forest:   #1a3d2e;
+      --forest-md:#2a5040;
+      --forest-lt:#3b6e52;
+      --green:    #3b8060;
+      --sage:     #7aab8e;
+      --mist:     #b8d4c4;
+      --pale:     #e4f0ea;
+      --bg:       #f0f7f4;
+      --surface:  #ffffff;
+      --text:     #0e2018;
+      --muted:    #4a7060;
+      --subtle:   #7aab8e;
+      --border:   #d0e8d8;
+      --radius:   14px;
+      --radius-lg:20px;
+    }
+
+    body {
+      font-family: 'Jost', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    /* ── PAGE ── */
+    .page { max-width: 980px; margin: 0 auto; padding: 3rem 1.5rem 5rem; }
+
+    /* ── HERO ── */
+    .hero {
+      background: var(--forest);
+      border-radius: var(--radius-lg);
+      padding: 3rem;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 2.5rem;
+      align-items: center;
+      margin-bottom: 1.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 260px; height: 260px;
+      border-radius: 50%;
+      border: 40px solid rgba(255,255,255,0.03);
+      pointer-events: none;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -80px; left: 40%;
+      width: 200px; height: 200px;
+      border-radius: 50%;
+      border: 30px solid rgba(255,255,255,0.03);
+      pointer-events: none;
+    }
+
+    .hero-photo {
+      width: 170px;
+      height: 170px;
+      border-radius: 16px;
+      object-fit: cover;
+      display: block;
+      border: 3px solid var(--forest-md);
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-photo-placeholder {
+      width: 170px;
+      height: 170px;
+      border-radius: 16px;
+      background: var(--forest-md);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 58px;
+      font-weight: 300;
+      color: var(--forest-lt);
+      border: 3px solid var(--forest-lt);
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-info { position: relative; z-index: 1; }
+
+    .hero-eyebrow {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--sage);
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 52px;
+      font-weight: 300;
+      color: #e8f5ee;
+      line-height: 1.05;
+      margin-bottom: 0.75rem;
+    }
+
+    .hero-bio {
+      font-size: 14px;
+      color: var(--mist);
+      max-width: 420px;
+      line-height: 1.7;
+      margin-bottom: 1.25rem;
+      font-weight: 300;
+    }
+
+    .hero-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 1.25rem; }
+    .hero-tag {
+      font-size: 11px;
+      font-weight: 400;
+      padding: 4px 12px;
+      border-radius: 20px;
+      background: rgba(255,255,255,0.07);
+      border: 0.5px solid rgba(255,255,255,0.12);
+      color: var(--mist);
+    }
+
+    .hero-contacts { display: flex; flex-wrap: wrap; gap: 10px; }
+    .hero-contact {
+      font-size: 12px;
+      color: var(--sage);
+      background: rgba(255,255,255,0.06);
+      border: 0.5px solid rgba(255,255,255,0.1);
+      border-radius: 20px;
+      padding: 5px 14px;
+      text-decoration: none;
+    }
+    .hero-contact:hover { background: rgba(255,255,255,0.12); color: #e8f5ee; }
+
+    /* ── SECTION LABEL ── */
+    .section { margin-bottom: 2rem; }
+    .section-label {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--subtle);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .section-label::after {
+      content: '';
+      flex: 1;
+      height: 0.5px;
+      background: var(--border);
+    }
+
+    /* ── ANALYTICS ── */
+    .analytics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 14px;
+    }
+
+    .platform-card {
+      background: var(--surface);
+      border: 0.5px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+
+    .platform-header {
+      background: var(--forest);
+      padding: 1.1rem 1.4rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .platform-dot { width: 8px; height: 8px; border-radius: 50%; }
+    .platform-name { font-size: 14px; font-weight: 500; color: #e8f5ee; }
+    .platform-handle { font-size: 11px; color: var(--sage); margin-left: auto; }
+
+    .platform-body { padding: 1.25rem 1.4rem; }
+
+    .follower-row { display: flex; align-items: baseline; gap: 8px; margin-bottom: 1rem; }
+    .follower-count {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 42px;
+      font-weight: 300;
+      color: var(--forest);
+      line-height: 1;
+    }
+    .follower-label { font-size: 12px; color: var(--subtle); }
+
+    .stat-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 12.5px;
+      padding: 6px 0;
+      border-bottom: 0.5px solid var(--border);
+    }
+    .stat-row:last-of-type { border-bottom: none; }
+    .stat-label { color: var(--muted); font-weight: 300; }
+    .stat-value { font-weight: 500; color: var(--forest); }
+
+    .demo-section { margin-top: 1rem; padding-top: 1rem; border-top: 0.5px solid var(--border); }
+    .demo-row { margin-bottom: 9px; }
+    .demo-meta { display: flex; justify-content: space-between; font-size: 11px; color: var(--muted); margin-bottom: 4px; font-weight: 300; }
+    .bar-track { height: 4px; background: var(--pale); border-radius: 2px; overflow: hidden; }
+    .bar-fill { height: 100%; border-radius: 2px; background: var(--green); }
+
+    /* ── VIRAL CALLOUT ── */
+    .viral-card {
+      background: var(--forest);
+      border-radius: var(--radius);
+      padding: 2rem 2.5rem;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .viral-eyebrow {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--sage);
+      margin-bottom: 0.6rem;
+    }
+
+    .viral-headline {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 24px;
+      font-weight: 400;
+      color: #e8f5ee;
+      line-height: 1.3;
+      margin-bottom: 0.9rem;
+    }
+
+    .viral-body {
+      font-size: 13px;
+      color: var(--mist);
+      line-height: 1.7;
+      font-weight: 300;
+      max-width: 500px;
+    }
+
+    .viral-stat-box {
+      text-align: center;
+      background: rgba(255,255,255,0.06);
+      border: 0.5px solid rgba(255,255,255,0.1);
+      border-radius: 14px;
+      padding: 1.5rem 2rem;
+      flex-shrink: 0;
+      min-width: 120px;
+    }
+
+    .viral-number {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 52px;
+      font-weight: 300;
+      color: #e8f5ee;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .viral-unit {
+      font-size: 10px;
+      color: var(--sage);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    /* ── SERVICES ── */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 12px;
+    }
+
+    .service-card {
+      background: var(--surface);
+      border: 0.5px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.25rem;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .service-card:hover { border-color: var(--green); background: #fafffe; }
+
+    .service-pip {
+      width: 32px; height: 32px;
+      border-radius: 8px;
+      background: var(--pale);
+      border: 0.5px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      margin-bottom: 0.8rem;
+    }
+
+    .service-title { font-size: 13px; font-weight: 500; color: var(--forest); margin-bottom: 4px; }
+    .service-desc { font-size: 11.5px; color: var(--muted); line-height: 1.55; font-weight: 300; }
+
+    /* ── FEATURED CONTENT ── */
+    .content-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .content-card {
+      background: var(--surface);
+      border: 0.5px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card-media {
+      position: relative;
+      width: 100%;
+      padding-bottom: 100%;
+      background: var(--pale);
+      flex-shrink: 0;
+    }
+
+    .card-media iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
+    }
+
+    .tt-thumb-wrap {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .tt-thumb-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.35s ease;
+      display: block;
+    }
+
+    .tt-thumb-wrap:hover img { transform: scale(1.05); }
+
+    .tt-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(10,32,24,0.7) 0%, rgba(10,32,24,0) 55%);
+      display: flex;
+      align-items: flex-end;
+      padding: 14px;
+    }
+
+    .tt-watch-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: rgba(255,255,255,0.93);
+      color: var(--forest);
+      font-size: 12px;
+      font-weight: 500;
+      font-family: 'Jost', sans-serif;
+      border: none;
+      border-radius: 24px;
+      padding: 7px 14px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .tt-watch-btn:hover { background: #fff; transform: scale(1.03); }
+
+    .tt-spinner {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--subtle);
+      font-size: 12px;
+    }
+
+    .card-meta {
+      padding: 9px 12px;
+      font-size: 11px;
+      color: var(--subtle);
+      border-top: 0.5px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .platform-badge {
+      font-size: 10px;
+      font-weight: 500;
+      padding: 2px 8px;
+      border-radius: 20px;
+    }
+    .ig-badge { background: #fce4ec; color: #880e4f; }
+    .tt-badge { background: var(--pale); color: var(--forest); }
+
+    /* ── FOOTER ── */
+    .footer {
+      margin-top: 2.5rem;
+      background: var(--forest);
+      border-radius: var(--radius);
+      padding: 1.5rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .footer-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      font-weight: 300;
+      color: #e8f5ee;
+    }
+
+    .footer-contacts { display: flex; gap: 14px; flex-wrap: wrap; }
+    .footer-contacts a { font-size: 12px; color: var(--sage); text-decoration: none; }
+    .footer-contacts a:hover { color: #e8f5ee; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 680px) {
+      .hero { grid-template-columns: 1fr; text-align: center; padding: 2rem 1.5rem; }
+      .hero-photo, .hero-photo-placeholder { width: 130px; height: 130px; margin: 0 auto; }
+      .hero-name { font-size: 38px; }
+      .hero-tags, .hero-contacts { justify-content: center; }
+      .hero-bio { margin-left: auto; margin-right: auto; }
+      .content-row { grid-template-columns: 1fr; }
+      .viral-card { grid-template-columns: 1fr; }
+      .footer { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HERO -->
+  <div class="hero">
+    <img
+      class="hero-photo"
+      src="WhatsApp Image 2026-04-07 at 11.45.12.jpeg"
+      alt="Bernardo Cruz"
+      onerror="this.style.display='none'; document.getElementById('hero-fallback').style.display='flex';"
+    />
+    <div class="hero-photo-placeholder" id="hero-fallback">BC</div>
+
+    <div class="hero-info">
+      <div class="hero-eyebrow">Media Kit · 2026</div>
+      <h1 class="hero-name">Bernardo<br>Cruz</h1>
+      <p class="hero-bio">Lifestyle creator focused on fashion, well-being and leisure. I combine strategy and creativity to produce high-performing content.</p>
+      <div class="hero-tags">
+        <span class="hero-tag">@bernardocruzzz</span>
+        <span class="hero-tag">Fashion</span>
+        <span class="hero-tag">Lifestyle</span>
+        <span class="hero-tag">Well-being</span>
+        <span class="hero-tag">Leisure</span>
+      </div>
+      <div class="hero-contacts">
+        <a class="hero-contact" href="mailto:bernardocr888@gmail.com">bernardocr888@gmail.com</a>
+        <a class="hero-contact" href="tel:+351914161884">+351 914 161 884</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ANALYTICS -->
+  <div class="section">
+    <div class="section-label">Social media analytics</div>
+    <div class="analytics-grid">
+
+      <div class="platform-card">
+        <div class="platform-header">
+          <div class="platform-dot" style="background:#e91e63"></div>
+          <span class="platform-name">Instagram</span>
+          <span class="platform-handle">@bernardocruzzz</span>
+        </div>
+        <div class="platform-body">
+          <div class="follower-row">
+            <div class="follower-count">3.5K</div>
+            <div class="follower-label">followers</div>
+          </div>
+          <div class="stat-row"><span class="stat-label">Total views</span><span class="stat-value">+200K</span></div>
+          <div class="stat-row"><span class="stat-label">Reach</span><span class="stat-value">+10K</span></div>
+          <div class="stat-row"><span class="stat-label">Women / Men</span><span class="stat-value">36% · 64%</span></div>
+          <div class="demo-section">
+            <div class="demo-row">
+              <div class="demo-meta"><span>18–24</span><span>38%</span></div>
+              <div class="bar-track"><div class="bar-fill" style="width:38%;background:#e91e63"></div></div>
+            </div>
+            <div class="demo-row">
+              <div class="demo-meta"><span>25–34</span><span>48%</span></div>
+              <div class="bar-track"><div class="bar-fill" style="width:48%;background:#e91e63"></div></div>
+            </div>
+            <div class="demo-row">
+              <div class="demo-meta"><span>35+</span><span>14%</span></div>
+              <div class="bar-track"><div class="bar-fill" style="width:14%;background:#e91e63"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="platform-card">
+        <div class="platform-header">
+          <div class="platform-dot" style="background:#3b8060"></div>
+          <span class="platform-name">TikTok</span>
+          <span class="platform-handle">@bernardocruzzz</span>
+        </div>
+        <div class="platform-body">
+          <div class="follower-row">
+            <div class="follower-count">13.6K</div>
+            <div class="follower-label">followers</div>
+          </div>
+          <div class="stat-row"><span class="stat-label">Total views</span><span class="stat-value">+259K</span></div>
+          <div class="stat-row"><span class="stat-label">Reach</span><span class="stat-value">+192K</span></div>
+          <div class="stat-row"><span class="stat-label">Women / Men</span><span class="stat-value">77% · 19%</span></div>
+          <div class="demo-section">
+            <div class="demo-row">
+              <div class="demo-meta"><span>18–24</span><span>61%</span></div>
+              <div class="bar-track"><div class="bar-fill" style="width:61%"></div></div>
+            </div>
+            <div class="demo-row">
+              <div class="demo-meta"><span>25–34</span><span>32%</span></div>
+              <div class="bar-track"><div class="bar-fill" style="width:32%"></div></div>
+            </div>
+            <div class="demo-row">
+              <div class="demo-meta"><span>35+</span><span>7%</span></div>
+              <div class="bar-track"><div class="bar-fill" style="width:7%"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- VIRAL CALLOUT -->
+  <div class="section">
+    <div class="section-label">Recent highlights</div>
+    <div class="viral-card">
+      <div>
+        <div class="viral-eyebrow">Case study · Organic reach</div>
+        <h2 class="viral-headline">A vet visit, reframed through lifestyle — and the algorithm loved it</h2>
+        <p class="viral-body">By pairing a relatable everyday moment — taking a pet to the vet — with the calm, aesthetic storytelling my audience expects, this post tapped into one of the biggest content trends right now: real life, beautifully shown. No paid promotion. No boosting. The video spread organically across For You pages and Explore feeds, driven by high save rates and shares from pet owners who felt seen. It's a clear example of how niche credibility and trend awareness, combined, outperform traditional sponsored content every time.</p>
+      </div>
+      <div class="viral-stat-box">
+        <div class="viral-number">128K</div>
+        <div class="viral-unit">organic views</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SERVICES -->
+  <div class="section">
+    <div class="section-label">Services I offer</div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-pip">🎬</div>
+        <div class="service-title">Short-form videos</div>
+        <div class="service-desc">Reels and TikToks crafted for maximum watch-time and shareability — scripted, filmed and edited.</div>
+      </div>
+      <div class="service-card">
+        <div class="service-pip">🖼️</div>
+        <div class="service-title">Feed posts</div>
+        <div class="service-desc">Curated photo and carousel posts styled to your brand aesthetic for Instagram and TikTok.</div>
+      </div>
+      <div class="service-card">
+        <div class="service-pip">💬</div>
+        <div class="service-title">Stories</div>
+        <div class="service-desc">Authentic day-in-the-life story sequences to drive swipe-ups, engagement and DMs.</div>
+      </div>
+      <div class="service-card">
+        <div class="service-pip">📣</div>
+        <div class="service-title">Product reviews</div>
+        <div class="service-desc">Honest, high-retention product placements woven naturally into lifestyle content.</div>
+      </div>
+      <div class="service-card">
+        <div class="service-pip">🤝</div>
+        <div class="service-title">Brand partnerships</div>
+        <div class="service-desc">Long-term ambassador deals with multi-post campaigns and full usage rights included.</div>
+      </div>
+      <div class="service-card">
+        <div class="service-pip">✍️</div>
+        <div class="service-title">Content strategy</div>
+        <div class="service-desc">Consulting on tone, trends and calendar to align your brand with platform algorithms.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FEATURED CONTENT -->
+  <div class="section">
+    <div class="section-label">Featured content</div>
+    <div class="content-row">
+
+      <div class="content-card">
+        <div class="card-media">
+          <iframe
+            src="https://www.instagram.com/p/DUgewTxCEVQ/embed/captioned/"
+            scrolling="no"
+            allowtransparency="true"
+            allowfullscreen="true"
+          ></iframe>
+        </div>
+        <div class="card-meta">
+          <span class="platform-badge ig-badge">Instagram</span>
+          @bernardocruzzz
+        </div>
+      </div>
+
+      <div class="content-card">
+        <div class="card-media">
+          <div class="tt-thumb-wrap" id="tt-wrap">
+            <div class="tt-spinner" id="tt-spin">Loading preview...</div>
+          </div>
+        </div>
+        <div class="card-meta">
+          <span class="platform-badge tt-badge">TikTok</span>
+          @bernardocruzzz
+        </div>
+      </div>
+
+      <div class="content-card">
+        <div class="card-media">
+          <iframe
+            src="https://www.instagram.com/p/DVZJsbTiPba/embed/captioned/"
+            scrolling="no"
+            allowtransparency="true"
+            allowfullscreen="true"
+          ></iframe>
+        </div>
+        <div class="card-meta">
+          <span class="platform-badge ig-badge">Instagram</span>
+          @bernardocruzzz
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <span class="footer-name">Bernardo Cruz</span>
+    <div class="footer-contacts">
+      <a href="mailto:bernardocr888@gmail.com">bernardocr888@gmail.com</a>
+      <a href="tel:+351914161884">+351 914 161 884</a>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  var ttUrl = 'https://www.tiktok.com/@bernardocruzzz/video/7622703146250374432';
+  var wrap = document.getElementById('tt-wrap');
+  var spin = document.getElementById('tt-spin');
+
+  fetch('https://www.tiktok.com/oembed?url=' + encodeURIComponent(ttUrl))
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+      spin.remove();
+      var img = document.createElement('img');
+      img.src = data.thumbnail_url;
+      img.alt = data.title || 'TikTok video';
+      wrap.appendChild(img);
+      var overlay = document.createElement('div');
+      overlay.className = 'tt-overlay';
+      overlay.innerHTML = '<a href="' + ttUrl + '" target="_blank" rel="noopener" class="tt-watch-btn">'
+        + '<svg width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M4 2l10 6-10 6V2z" fill="currentColor"/></svg>'
+        + ' Watch on TikTok</a>';
+      wrap.appendChild(overlay);
+    })
+    .catch(function() {
+      spin.remove();
+      wrap.style.cssText = 'position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:#e4f0ea;';
+      wrap.innerHTML = '<a href="' + ttUrl + '" target="_blank" rel="noopener" class="tt-watch-btn" style="background:#1a3d2e;color:#e8f5ee;">Watch on TikTok</a>';
+    });
+</script>
+</body>
+</html>
